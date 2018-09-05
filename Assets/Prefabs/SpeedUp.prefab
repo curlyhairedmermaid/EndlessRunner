@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1002954541978992}
+  m_RootGameObject: {fileID: 1523678417780990}
   m_IsPrefabAsset: 1
---- !u!1 &1002954541978992
+--- !u!1 &1523678417780990
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4920197434519988}
-  - component: {fileID: 33249133448346868}
-  - component: {fileID: 23204375684102754}
-  - component: {fileID: 114611772944183538}
-  - component: {fileID: 114291309054654734}
+  - component: {fileID: 4609676295435114}
+  - component: {fileID: 33090328104677442}
+  - component: {fileID: 23579162493101092}
+  - component: {fileID: 114886245000569750}
+  - component: {fileID: 114830646919057910}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: SpeedUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4920197434519988
+--- !u!4 &4609676295435114
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
+  m_GameObject: {fileID: 1523678417780990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0643334, y: -0.4165411, z: 3.9954844}
-  m_LocalScale: {x: 1.2796674, y: 2.2181904, z: 0.39337936}
+  m_LocalPosition: {x: 2.6, y: 0.578, z: -1.541}
+  m_LocalScale: {x: 0.4931, y: 0.4931, z: 0.4931}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23204375684102754
+--- !u!23 &23579162493101092
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
+  m_GameObject: {fileID: 1523678417780990}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,36 +78,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33249133448346868
+--- !u!33 &33090328104677442
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114291309054654734
+  m_GameObject: {fileID: 1523678417780990}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114830646919057910
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
+  m_GameObject: {fileID: 1523678417780990}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 816c8efb57164684792dfea39751ff33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabWall: {fileID: 1002954541978992}
-  prefabSpeedUp: {fileID: 1523678417780990, guid: 93407c35d92bb7145b14e12893d90451,
-    type: 2}
---- !u!114 &114611772944183538
+  prefabWall: {fileID: 1002954541978992, guid: a5c0922f817251c4ba75d2b60ad9e2b0, type: 2}
+  prefabSpeedUp: {fileID: 1523678417780990}
+--- !u!114 &114886245000569750
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
+  m_GameObject: {fileID: 1523678417780990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5152bb1451c14644896bb772b94b7179, type: 3}
+  m_Script: {fileID: 11500000, guid: ff5d55c9027fcc747b8b79d782da91e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   laneWidth: 2

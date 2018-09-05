@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleMovement : MonoBehaviour
-{
+public class PowerUp : MonoBehaviour {
 
-    float ObstacleSpeed = -10;
+	// Use this for initialization
+    float speed = -10;
     public float laneWidth = 2;
     int lane = 0;
     float life = 0;
@@ -13,13 +13,14 @@ public class ObstacleMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        print("jike");
         lane = Random.Range(-2, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0, 0, ObstacleSpeed) * Time.deltaTime;
+        transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
 
         float targetX = lane * laneWidth;
         life = life + Time.deltaTime;
@@ -29,9 +30,11 @@ public class ObstacleMovement : MonoBehaviour
         {
             Destroy(this);
         }
-        if (Input.GetButtonDown("Vertical"))
+        /*
+        if (collision is true)
         {
-            ObstacleSpeed *= 2;
+            ObstacleMovement.ObstacleSpeed *= 2;
         }
+        */
     }
 }
