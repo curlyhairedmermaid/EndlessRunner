@@ -51,9 +51,9 @@ public class PlayerMovement : MonoBehaviour
             transform.position = pos;
         }
 
-        float targetX = (lane * laneWidth)/2;
+        float targetX = (lane * laneWidth) / 2;
 
-        float x = (targetX- transform.position.x)* .1f;
+        float x = (targetX - transform.position.x) * .1f;
         transform.position += new Vector3(x, 0, 0);
 
 

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour {
+public class PowerUp : MonoBehaviour
+{
 
-	// Use this for initialization
+    // Use this for initialization
     float speed = -10;
     public float laneWidth = 2;
     int lane = 0;
@@ -38,3 +39,4 @@ public class PowerUp : MonoBehaviour {
         */
     }
 }
+

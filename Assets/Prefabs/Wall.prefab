@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33249133448346868}
   - component: {fileID: 23204375684102754}
   - component: {fileID: 114611772944183538}
-  - component: {fileID: 114291309054654734}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -85,20 +84,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002954541978992}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114291309054654734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 816c8efb57164684792dfea39751ff33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabWall: {fileID: 1002954541978992}
-  prefabSpeedUp: {fileID: 1523678417780990, guid: 93407c35d92bb7145b14e12893d90451,
-    type: 2}
 --- !u!114 &114611772944183538
 MonoBehaviour:
   m_ObjectHideFlags: 1
