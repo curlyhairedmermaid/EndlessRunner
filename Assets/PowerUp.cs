@@ -2,41 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour
-{
-
-    // Use this for initialization
-    float speed = -10;
-    public float laneWidth = 2;
-    int lane = 0;
-    float life = 0;
-
-    // Use this for initialization
-    void Start()
+public class Powerup : MonoBehaviour {
+    public int health = 3;
+    public enum Type // Powerup.Type
     {
-        print("jike");
-        lane = Random.Range(-2, 2);
+        None,
+        Slowmo,
+        Health,
+        JetpackBoost,
+        Negative
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
+    public Type type;
 
-        float targetX = lane * laneWidth;
-        life = life + Time.deltaTime;
-        float x = (targetX - transform.position.x) * .1f;
-        transform.position += new Vector3(x, 0, 0);
-        if (life >= 4)
-        {
-            Destroy(this);
-        }
-        /*
-        if (collision is true)
-        {
-            ObstacleMovement.ObstacleSpeed *= 2;
-        }
-        */
+    public void Slow()
+    {
+        ObstacleMovement obstacle = GetComponent<ObstacleMovement>();
+        obstacle.SlowDown();
     }
+    public void Health()
+    {
+        if (health < 5)
+        {
+            health++;
+            print(health);
+        }
+    }
+    public void Jetpack()
+    {
+
+    }
+    public void Negative()
+    {
+        if (health > 1)
+        {
+            health--;
+            print(health);
+        }
+        else
+        {
+            //die
+        }
+    }
+
 }
-

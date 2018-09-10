@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-
+public class PlayerMovement : MonoBehaviour {
 
     public float laneWidth = 1;
     const int GRAVITY = -9;
@@ -59,4 +57,32 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    void OverlappingAABB(AABB other)
+    {
+
+        if (other.tag == "Powerup")
+        {
+            // it must be a powerup...
+            Powerup powerup = other.GetComponent<Powerup>();
+            switch (powerup.type)
+            {
+                case Powerup.Type.None:
+                    break;
+                case Powerup.Type.Slowmo:
+                    powerup.Slow();
+                    break;
+                case Powerup.Type.Health:
+                    powerup.Health();
+                    break;
+                case Powerup.Type.Negative:
+                    powerup.Negative();
+                    break;
+                case Powerup.Type.JetpackBoost:
+                    break;
+            }
+            Destroy(other.gameObject);
+        }
+    }
+
 }
