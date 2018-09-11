@@ -21,10 +21,11 @@ GameObject:
   - component: {fileID: 4306047368430106}
   - component: {fileID: 33196477122163702}
   - component: {fileID: 23320971428960252}
-  - component: {fileID: 135170569917618126}
   - component: {fileID: 114184358173988398}
+  - component: {fileID: 114187971251350776}
+  - component: {fileID: 114549389804754460}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: prefabSlow
   m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,16 +97,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be63e0d8067dc47814e3b950501eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
+  laneWidth: 2
   type: 1
---- !u!135 &135170569917618126
-SphereCollider:
+--- !u!114 &114187971251350776
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1053119657852464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96abb8ea54b5977489398475cf65ceed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDoneChecking: 0
+--- !u!114 &114549389804754460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053119657852464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be63e0d8067dc47814e3b950501eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  laneWidth: 2
+  type: 1

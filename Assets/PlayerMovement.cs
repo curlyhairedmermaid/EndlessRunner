@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour
+{
+    
     public float laneWidth = 1;
     const int GRAVITY = -9;
     new Vector3 velocity;
@@ -40,7 +41,8 @@ public class PlayerMovement : MonoBehaviour {
                 velocity.y = 7; //jump
             }
         }
-        // Euler shit
+       // Euler shit 
+        
         transform.position += velocity * Time.deltaTime;
         if (transform.position.y < 0) // on gorund
         {
@@ -53,9 +55,38 @@ public class PlayerMovement : MonoBehaviour {
 
         float x = (targetX - transform.position.x) * .1f;
         transform.position += new Vector3(x, 0, 0);
+        
+        float v = Input.GetAxisRaw("Vertical");
+        if (Input.GetButton("Vertical"))
+        {
+            if (v == -1) // if pressing down
+            {
+                if (transform.localScale.y >= 0)
+                {
+                    transform.localScale -= new Vector3(0, .1F, 0);
+                }
 
+            }
+            if (v == 1) // if pressing up
+            {
+                if (transform.localScale.x >= 0)
+                {
+                    transform.localScale -= new Vector3(.1F, 0, 0);
+                }
+            }
+        }
+        else
+        {
 
-
+            if (transform.localScale.y <= 3)
+            {
+                transform.localScale += new Vector3(0, .1F, 0);
+            }
+            if (transform.localScale.x <= 3)
+            {
+                transform.localScale += new Vector3(.1F, 0, 0);
+            }
+        }
     }
 
     void OverlappingAABB(AABB other)
@@ -64,25 +95,25 @@ public class PlayerMovement : MonoBehaviour {
         if (other.tag == "Powerup")
         {
             // it must be a powerup...
-            Powerup powerup = other.GetComponent<Powerup>();
+            PowerUp powerup = other.GetComponent<PowerUp>();
             switch (powerup.type)
             {
-                case Powerup.Type.None:
+                case PowerUp.Type.None:
                     break;
-                case Powerup.Type.Slowmo:
+                case PowerUp.Type.Slowmo:
                     powerup.Slow();
                     break;
-                case Powerup.Type.Health:
+                case PowerUp.Type.Health:
                     powerup.Health();
                     break;
-                case Powerup.Type.Negative:
+                case PowerUp.Type.Negative:
                     powerup.Negative();
                     break;
-                case Powerup.Type.JetpackBoost:
+                case PowerUp.Type.JetpackBoost:
                     break;
             }
             Destroy(other.gameObject);
         }
     }
-
+     
 }

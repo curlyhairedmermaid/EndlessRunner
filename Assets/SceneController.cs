@@ -23,8 +23,10 @@ public class SceneController : MonoBehaviour {
         }
 
         if (tracks.Count < 5) SpawnSomeTrack();
-        
-	}
+
+       transform.Rotate(0,0,.1f);
+        //if(transform.ro)
+    }
 
     void SpawnSomeTrack()
     {

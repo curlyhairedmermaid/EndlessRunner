@@ -9,7 +9,9 @@ public class Track : MonoBehaviour {
 
     public Transform[] wallSpawnPoints;
 
+
     public GameObject prefabWall;
+    public GameObject prefabSlow;
     public float speed = 10;
 
     [HideInInspector] public bool isDead = false;
@@ -23,8 +25,12 @@ public class Track : MonoBehaviour {
         int randIndex = Random.Range(0, wallSpawnPoints.Length);
         Vector3 spawnPos = wallSpawnPoints[randIndex].position;
 
+        int randIndex2 = Random.Range(0, wallSpawnPoints.Length);
+        Vector3 spawnPos2 = wallSpawnPoints[randIndex2].position;
+
         // Spawn a wall, parent it to this chunk of track:
         Instantiate(prefabWall, spawnPos, Quaternion.identity, transform);
+        Instantiate(prefabSlow, spawnPos2, Quaternion.identity, transform);
     }
 
     void Update()
@@ -35,6 +41,17 @@ public class Track : MonoBehaviour {
         {
             isDead = true;
         }
+    }
+    void SpeedUp()
+    {
+
+        speed *= 2;
+
+    }
+    public void SlowDown()
+    {
+        speed /= 2;
+
     }
 
 
