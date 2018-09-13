@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
-    public int health = 3;
+    public int health = 1;
     float speed = -10;
     public float laneWidth = 2;
     int lane = 0;
@@ -11,9 +12,9 @@ public class PowerUp : MonoBehaviour {
     public enum Type // Powerup.Type
     {
         None,
-        Slowmo,
+       // Slowmo,
         Health,
-        JetpackBoost,
+       // JetpackBoost,
         Negative
     }
     
@@ -39,10 +40,7 @@ public class PowerUp : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    public void Slow()
-    {
-       
-    }
+
     public void Health()
     {
         if (health < 5)
@@ -50,10 +48,6 @@ public class PowerUp : MonoBehaviour {
             health++;
             print(health);
         }
-    }
-    public void Jetpack()
-    {
-
     }
     public void Negative()
     {
@@ -64,7 +58,7 @@ public class PowerUp : MonoBehaviour {
         }
         else
         {
-            //die
+            SceneManager.LoadScene("Lose");
         }
     }
 

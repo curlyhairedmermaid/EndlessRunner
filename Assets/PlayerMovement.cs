@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     
     public float laneWidth = 1;
     const int GRAVITY = -9;
-    new Vector3 velocity;
+    Vector3 velocity;
     int lane = 0;
 
     void Start()
@@ -36,9 +37,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")) // press space
         {
+            
             if (transform.position.y <= 0) //on ground
             {
-                velocity.y = 7; //jump
+            velocity.y = 7; //jump
             }
         }
        // Euler shit 
@@ -100,17 +102,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 case PowerUp.Type.None:
                     break;
-                case PowerUp.Type.Slowmo:
-                    powerup.Slow();
-                    break;
+               // case PowerUp.Type.Slowmo:
+                   // powerup.Slow();
+                   // break;
                 case PowerUp.Type.Health:
-                    powerup.Health();
+
+                    powerup.Health();                    
                     break;
                 case PowerUp.Type.Negative:
                     powerup.Negative();
                     break;
-                case PowerUp.Type.JetpackBoost:
-                    break;
+                //case PowerUp.Type.JetpackBoost:
+                   // break;
             }
             Destroy(other.gameObject);
         }

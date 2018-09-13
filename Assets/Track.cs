@@ -37,22 +37,12 @@ public class Track : MonoBehaviour {
     {
         transform.position += new Vector3(0, 0, -speed) * Time.deltaTime;
 
-        if(pointOut.position.z < -5)
+        if(pointOut.position.z < -10)
         {
             isDead = true;
         }
     }
-    void SpeedUp()
-    {
 
-        speed *= 2;
-
-    }
-    public void SlowDown()
-    {
-        speed /= 2;
-
-    }
 
 
 }

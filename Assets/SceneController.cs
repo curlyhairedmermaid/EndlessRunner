@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneController : MonoBehaviour {
 
     public Track[] prefabTracks;
+
     List<Track> tracks = new List<Track>();
 
 
@@ -13,6 +14,7 @@ public class SceneController : MonoBehaviour {
 	}
 
 	void Update () {
+
         for (int i = tracks.Count - 1; i >= 0; i--)
         {
             if(tracks[i].isDead)
@@ -22,10 +24,9 @@ public class SceneController : MonoBehaviour {
             }
         }
 
-        if (tracks.Count < 5) SpawnSomeTrack();
+            if (tracks.Count < 5) SpawnSomeTrack();
 
        transform.Rotate(0,0,.1f);
-        //if(transform.ro)
     }
 
     void SpawnSomeTrack()
