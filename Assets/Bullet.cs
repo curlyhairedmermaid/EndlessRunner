@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
+
 public class Bullet : MonoBehaviour
-{/*
+{
     public GameObject prefabBullet;
     Vector3 velocity;
-    List<Bullet> bullets = new List<Bullet>();
     float life = 0;
+    int count = 0;
 
     // Use this for initialization
     void Start()
@@ -26,21 +26,17 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            for (int i = bullets.Count - 1; i >= 0; i--)
-            {
-                {
-                    Destroy(bullets[i].gameObject);
-                    bullets.RemoveAt(i);
-                }
-            }
+            Destroy(gameObject);
         }
-        while (bullets.Count < 5)
+        while (count < 5)
+        {
             if (Input.GetKeyDown("left shift"))
             {
                 Instantiate(prefabBullet);
                 print(transform.position);
+                count += 1;
             }
-
+        }
     }
 
-}*/
+}
