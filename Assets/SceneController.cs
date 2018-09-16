@@ -5,16 +5,16 @@ using UnityEngine;
 public class SceneController : MonoBehaviour {
 
     public Track[] prefabTracks;
-
+    public int score = 0;
     List<Track> tracks = new List<Track>();
-
+    Bullet bullet;
 
 	void Start () {
         SpawnSomeTrack();
 	}
 
 	void Update () {
-
+       // bullet.Update();
         for (int i = tracks.Count - 1; i >= 0; i--)
         {
             if(tracks[i].isDead)

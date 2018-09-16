@@ -46,10 +46,10 @@ public class PlayerMovement : MonoBehaviour
        // Euler shit 
         
         transform.position += velocity * Time.deltaTime;
-        if (transform.position.y < 0) // on gorund
+        if (transform.position.y < 1) // on gorund
         {
             Vector3 pos = transform.position; //make a copy of the pos
-            pos.y = 0; // clamp y value
+            pos.y = 1; // clamp y value
             transform.position = pos;
         }
 
@@ -57,38 +57,58 @@ public class PlayerMovement : MonoBehaviour
 
         float x = (targetX - transform.position.x) * .1f;
         transform.position += new Vector3(x, 0, 0);
-        
-        float v = Input.GetAxisRaw("Vertical");
-        if (Input.GetButton("Vertical"))
-        {
-            if (v == -1) // if pressing down
-            {
-                if (transform.localScale.y >= 0)
-                {
-                    transform.localScale -= new Vector3(0, .1F, 0);
-                }
 
-            }
-            if (v == 1) // if pressing up
-            {
-                if (transform.localScale.x >= 0)
-                {
-                    transform.localScale -= new Vector3(.1F, 0, 0);
-                }
-            }
+        Vector3 scale = transform.localScale;
+        if (Input.GetButton("SquishSkinny"))
+        {
+            scale.x = Mathf.Lerp(scale.x, (scale.x >= 0 ? .2f : 3), Time.deltaTime);
+            scale.x = Mathf.Lerp(scale.x, (scale.x <= 3 ? 1.5f : 3), Time.deltaTime);
         }
         else
         {
-
-            if (transform.localScale.y <= 3)
-            {
-                transform.localScale += new Vector3(0, .1F, 0);
-            }
-            if (transform.localScale.x <= 3)
-            {
-                transform.localScale += new Vector3(.1F, 0, 0);
-            }
+            scale.x = Mathf.Lerp(scale.x, (scale.x <= 3 ? 3 : 3), Time.deltaTime);
         }
+        if (Input.GetButton("SquishFlat"))
+        {
+            print("i'm bring sexy back");
+            scale.y = Mathf.Lerp(scale.y, (scale.y >= 0 ? .2f : 3), Time.deltaTime);
+        }
+        else
+        {
+            scale.y = Mathf.Lerp(scale.y, (scale.y <= 3 ? 3 : 3), Time.deltaTime);
+        }
+        transform.localScale = scale;
+
+        /*if (Input.GetButton("Vertical"))
+      {
+          if (v == -1) // if pressing down
+          {
+              if (transform.localScale.y >= 0)
+              {
+                  transform.localScale -= new Vector3(0, .1F, 0);
+              }
+
+          }
+          if (v == 1) // if pressing up
+          {
+              if (transform.localScale.x >= 0)
+              {
+                  transform.localScale -= new Vector3(.1F, 0, 0);
+              }
+          }
+      }
+      else
+      {
+
+          if (transform.localScale.y <= 3)
+          {
+              transform.localScale += new Vector3(0, .1F, 0);
+          }
+          if (transform.localScale.x <= 3)
+          {
+              transform.localScale += new Vector3(.1F, 0, 0);
+          }
+      }*/
     }
 
     void OverlappingAABB(AABB other)

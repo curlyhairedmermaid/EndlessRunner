@@ -141,7 +141,7 @@ Transform:
   m_Children:
   - {fileID: 534669905}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &166234840
 MonoBehaviour:
@@ -233,7 +233,6 @@ GameObject:
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
   - component: {fileID: 534669907}
-  - component: {fileID: 534669908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -325,18 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc45c12f47308a54cabac5e9e749d9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &534669908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead0b78269bf46748af940c99ff5941a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 0}
 --- !u!1 &691232451
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +408,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &691232456
 MonoBehaviour:
@@ -435,17 +422,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoneChecking: 0
---- !u!1001 &1382926075
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4748286998045288, guid: 9f20a4f28233de84ba82ae878bdf2d7a, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f20a4f28233de84ba82ae878bdf2d7a, type: 2}
-  m_IsPrefabAsset: 0
