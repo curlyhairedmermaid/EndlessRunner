@@ -5,11 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+    /// <summary>
+    /// The width of the lane
+    /// </summary>
     public float laneWidth = 1;
+    /// <summary>
+    /// Gravity being applied to the character
+    /// </summary>
     const int GRAVITY = -9;
+    /// <summary>
+    /// Velocity, set later in the code
+    /// </summary>
     Vector3 velocity;
+    /// <summary>
+    /// Lane player is currently in
+    /// </summary>
     int lane = 0;
+    public int health = 5;
+    SceneController scenecontroller;
 
     void Start()
     {
@@ -57,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         float x = (targetX - transform.position.x) * .1f;
         transform.position += new Vector3(x, 0, 0);
-
+        //Squash and stretch
         Vector3 scale = transform.localScale;
         if (Input.GetButton("SquishSkinny"))
         {
@@ -79,38 +92,11 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.localScale = scale;
 
-        /*if (Input.GetButton("Vertical"))
-      {
-          if (v == -1) // if pressing down
-          {
-              if (transform.localScale.y >= 0)
-              {
-                  transform.localScale -= new Vector3(0, .1F, 0);
-              }
-
-          }
-          if (v == 1) // if pressing up
-          {
-              if (transform.localScale.x >= 0)
-              {
-                  transform.localScale -= new Vector3(.1F, 0, 0);
-              }
-          }
       }
-      else
-      {
-
-          if (transform.localScale.y <= 3)
-          {
-              transform.localScale += new Vector3(0, .1F, 0);
-          }
-          if (transform.localScale.x <= 3)
-          {
-              transform.localScale += new Vector3(.1F, 0, 0);
-          }
-      }*/
-    }
-
+    /// <summary>
+    /// Decides what to do depending on what the tag and type is
+    /// </summary>
+    /// <param name="other">The overlappin object</param>
     void OverlappingAABB(AABB other)
     {
 
@@ -120,20 +106,32 @@ public class PlayerMovement : MonoBehaviour
             PowerUp powerup = other.GetComponent<PowerUp>();
             switch (powerup.type)
             {
-                case PowerUp.Type.None:
-                    break;
-               // case PowerUp.Type.Slowmo:
-                   // powerup.Slow();
-                   // break;
-                case PowerUp.Type.Health:
 
-                    powerup.Health();                    
+               case PowerUp.Type.Slowmo:
+                    scenecontroller.rotSpeed += .2f;
+                    break;
+                case PowerUp.Type.Health:
+                    if (health < 4)
+                    {
+                        health += 1;
+                        print(health);
+                    }
                     break;
                 case PowerUp.Type.Negative:
-                    powerup.Negative();
+                    if (health > 0)
+                    {
+                        health -= 1;
+                        print(health);
+                    }
+                    else if (health == 0)
+                    {
+                        SceneManager.LoadScene("Lose");
+                    }
                     break;
                 //case PowerUp.Type.JetpackBoost:
-                   // break;
+                // break;
+                case PowerUp.Type.None:
+                    break;
             }
             Destroy(other.gameObject);
         }

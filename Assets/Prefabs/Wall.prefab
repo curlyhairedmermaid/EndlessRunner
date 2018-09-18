@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4920197434519988}
   - component: {fileID: 33249133448346868}
   - component: {fileID: 23204375684102754}
-  - component: {fileID: 114151324319900740}
-  - component: {fileID: 114071722544005898}
+  - component: {fileID: 114389333214848398}
+  - component: {fileID: 114231328207972008}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002954541978992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0643334, y: -0.4165411, z: 3.9954844}
-  m_LocalScale: {x: 1.2796674, y: 2.2181904, z: 0.39337936}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b5771d32038601c40b5a8c4066853cc5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,21 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002954541978992}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114071722544005898
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002954541978992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79be63e0d8067dc47814e3b950501eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  laneWidth: 2
-  type: 2
---- !u!114 &114151324319900740
+--- !u!114 &114231328207972008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,3 +97,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoneChecking: 0
+--- !u!114 &114389333214848398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002954541978992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be63e0d8067dc47814e3b950501eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  type: 1

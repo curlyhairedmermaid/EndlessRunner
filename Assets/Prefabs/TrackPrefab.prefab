@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1252329974394142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.592, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15.836157, y: 0.18825, z: 24.34097}
   m_Children: []
   m_Father: {fileID: 4312088267568110}
@@ -174,7 +174,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4312088267568110}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.311001, y: 1.4030001, z: 0.18200001}
 --- !u!4 &4199260014126572
 Transform:
   m_ObjectHideFlags: 1
@@ -336,6 +336,7 @@ MonoBehaviour:
   - {fileID: 4671687829363652}
   - {fileID: 4199260014126572}
   prefabWall: {fileID: 1002954541978992, guid: a5c0922f817251c4ba75d2b60ad9e2b0, type: 2}
-  prefabSlow: {fileID: 1053119657852464, guid: a9e8e3dfde8b0b444b4e761cf4012e58, type: 2}
+  prefabHealth: {fileID: 1053119657852464, guid: a9e8e3dfde8b0b444b4e761cf4012e58,
+    type: 2}
   speed: 10
   isDead: 0

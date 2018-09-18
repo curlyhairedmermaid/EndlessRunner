@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23320971428960252}
   - component: {fileID: 114184358173988398}
   - component: {fileID: 114187971251350776}
-  - component: {fileID: 114549389804754460}
   m_Layer: 0
   m_Name: prefabSlow
   m_TagString: Powerup
@@ -59,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 639b4cfa7adb5134eab00e883bdc9c9c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,9 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79be63e0d8067dc47814e3b950501eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  laneWidth: 2
-  type: 1
+  health: 5
+  type: 0
 --- !u!114 &114187971251350776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,17 +110,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDoneChecking: 0
---- !u!114 &114549389804754460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1053119657852464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79be63e0d8067dc47814e3b950501eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  laneWidth: 2
-  type: 1

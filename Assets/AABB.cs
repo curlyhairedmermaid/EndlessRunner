@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AABB : MonoBehaviour {
-
+    /// <summary>
+    /// Moar mesh
+    /// </summary>
     MeshRenderer _mesh; // private C# field
+    /// <summary>
+    /// The mesh boundries 
+    /// </summary>
     public MeshRenderer mesh // C# property
     {
         get
@@ -13,6 +18,9 @@ public class AABB : MonoBehaviour {
             return _mesh;
         }
     }
+    /// <summary>
+    /// Sets the bounds of the mesh objects
+    /// </summary>
     public Bounds bounds // C# property
     {
         get
@@ -20,24 +28,37 @@ public class AABB : MonoBehaviour {
             return mesh.bounds;
         }
     }
-
+    /// <summary>
+    /// If the object is done checking against other objects. Hidden in the inspector
+    /// </summary>
     [HideInInspector] public bool isDoneChecking = false;
-
+    /// <summary>
+    /// A boolean on if the object is overlapping or not
+    /// </summary>
     bool isOverlapping = false;
-
+    /// <summary>
+    /// Adds a controller to the collider object
+    /// </summary>
 	void Start () {
         CollisionController.Add(this);
 	}
+    /// <summary>
+    /// Auto remove When collision is true
+    /// </summary>
 	void OnDestroy()
     {
         CollisionController.Remove(this);
     }
-
+    /// <summary>
+    /// Called every frame
+    /// </summary>
 	void Update () {
         isDoneChecking = false;
         isOverlapping = false;
 	}
-
+    /// <summary>
+    /// Draws red around objects if the object overlapping. Otherwise draws white
+    /// </summary>
     void OnDrawGizmos()
     {
         Gizmos.color = isOverlapping ? Color.red : Color.white;
@@ -62,7 +83,10 @@ public class AABB : MonoBehaviour {
 
         return true;
     }
-
+    /// <summary>
+    /// Returns true if the object was overlapping
+    /// </summary>
+    /// <param name="other">The object being overlapped with</param>
     void OverlappingAABB(AABB other)
     {
         isOverlapping = true;

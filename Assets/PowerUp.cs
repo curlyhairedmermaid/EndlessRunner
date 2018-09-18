@@ -4,34 +4,42 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
-    public int health = 1;
-    float speed = -10;
-    public float laneWidth = 2;
-    int lane = 0;
+    /// <summary>
+    /// The health of the player
+    /// </summary>
+    public int health = 5;
+    /// <summary>
+    /// the speed of the powerup
+    /// </summary>
+    int speed = -10;
+    /// <summary>
+    /// How long the Powerup had been alive
+    /// </summary>
     float life = 0;
+    /// <summary>
+    /// Setting the different types of Powerups
+    /// </summary>
     public enum Type // Powerup.Type
     {
-        None,
-       // Slowmo,
+        
+       Slowmo,
         Health,
        // JetpackBoost,
-        Negative
+        Negative,
+        None
     }
-    
+    /// <summary>
+    /// The Types in variable form
+    /// </summary>
     public Type type;
     void Start()
     {
-        lane = Random.Range(-2, 2);
-        float targetX = lane * laneWidth;
-        float x = (targetX - transform.position.x);
-        transform.position += new Vector3(x, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
-
 
         life = life + Time.deltaTime;
 
@@ -40,26 +48,19 @@ public class PowerUp : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
+    /// <summary>
+    /// If the health power up is collided with do this
+    /// </summary>
     public void Health()
     {
-        if (health < 5)
-        {
-            health++;
-            print(health);
-        }
+
     }
+    /// <summary>
+    /// If a "negative" power up is hit, do this
+    /// </summary>
     public void Negative()
     {
-        if (health > 1)
-        {
-            health--;
-            print(health);
-        }
-        else
-        {
-            SceneManager.LoadScene("Lose");
-        }
+
     }
 
 }

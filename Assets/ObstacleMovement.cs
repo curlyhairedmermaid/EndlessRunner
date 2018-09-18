@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour {
 
-    //public float speed = -10;
+    public float speed = -10;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +13,7 @@ public class ObstacleMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
+        transform.position += new Vector3(0, 0, speed) * Time.deltaTime;
 	}
 
 }

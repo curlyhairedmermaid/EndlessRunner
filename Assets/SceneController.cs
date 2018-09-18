@@ -6,10 +6,15 @@ public class SceneController : MonoBehaviour {
 
     public Track[] prefabTracks;
     public int score = 0;
+    public Transform prefabPntOut;
     List<Track> tracks = new List<Track>();
-    Bullet bullet;
+    /// <summary>
+    /// the rotation speed of the screen
+    /// </summary>
+    public float rotSpeed = .1f;
 
-	void Start () {
+
+    void Start () {
         SpawnSomeTrack();
 	}
 
@@ -26,7 +31,7 @@ public class SceneController : MonoBehaviour {
 
             if (tracks.Count < 5) SpawnSomeTrack();
 
-       transform.Rotate(0,0,.1f);
+       transform.Rotate(0,0, rotSpeed);
     }
 
     void SpawnSomeTrack()

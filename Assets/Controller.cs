@@ -5,13 +5,18 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
 
-    // Use this for initialization
+    /// <summary>
+    /// The transform to the target
+    /// </summary>
     public Transform viewTarget;
-
+    // Use this for initialization
     void Start()
     {
     }
-
+    /// <summary>
+    /// Late update is called after update
+    /// </summary>
+    // Update is called once per frame
     void LateUpdate()
     {
 
@@ -19,10 +24,7 @@ public class Controller : MonoBehaviour
         if (viewTarget)
         {
             //easing
-            //transform.position = viewTarget.position;
-
             transform.position += new Vector3((viewTarget.position.x - transform.position.x) * .1f, 0, 0);
-            //transform.position = Vector3.Lerp(transform.position, viewTarget.position, (Time.deltaTime * 10));
         }
     }
 }

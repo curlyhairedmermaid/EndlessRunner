@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Track : MonoBehaviour {
-
+    /// <summary>
+    /// The starting point of the object
+    /// </summary>
     public Transform pointIn;
+    /// <summary>
+    /// The ending point of the object
+    /// </summary>
     public Transform pointOut;
-
+    /// <summary>
+    /// the array holding the different possible spawn points of walls on the track
+    /// </summary>
     public Transform[] wallSpawnPoints;
-
-
+    /// <summary>
+    /// Reference to the wall prefab
+    /// </summary>
     public GameObject prefabWall;
-    public GameObject prefabSlow;
+    /// <summary>
+    /// Reference to the health powerup
+    /// </summary>
+    public GameObject prefabHealth;
+    /// <summary>
+    /// the speed of the track
+    /// </summary>
     public float speed = 10;
-
+    /// <summary>
+    /// Is dead variable. Hidden in the inspector
+    /// </summary>
     [HideInInspector] public bool isDead = false;
 
     void Start()
@@ -30,14 +46,17 @@ public class Track : MonoBehaviour {
 
         // Spawn a wall, parent it to this chunk of track:
         Instantiate(prefabWall, spawnPos, Quaternion.identity, transform);
-        Instantiate(prefabSlow, spawnPos2, Quaternion.identity, transform);
-    }
 
+        if(spawnPos2 != spawnPos) Instantiate(prefabHealth, spawnPos2, Quaternion.identity, transform);
+    }
+    /// <summary>
+    /// Sets the speed of the objects and the position that triggers their death
+    /// </summary>
     void Update()
     {
         transform.position += new Vector3(0, 0, -speed) * Time.deltaTime;
 
-        if(pointOut.position.z < -10)
+        if(pointOut.position.z < -30)
         {
             isDead = true;
         }
