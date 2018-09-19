@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: d678de2a9f4face448874ff9617d27d9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pointIn: {fileID: 4238976126316502, guid: 570b3a27e700ddf4c88977f4ed581f3e, type: 2}
+  - pointOut: {fileID: 4142445365927980, guid: 570b3a27e700ddf4c88977f4ed581f3e, type: 2}
+  - prefabWall: {fileID: 1002954541978992, guid: a5c0922f817251c4ba75d2b60ad9e2b0,
+      type: 2}
+  - prefabRot: {fileID: 1952169078177710, guid: e243a0aa3f67b964ebb248747d5f8daf,
+      type: 2}
+  - prefabHealth: {fileID: 1053119657852464, guid: a9e8e3dfde8b0b444b4e761cf4012e58,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

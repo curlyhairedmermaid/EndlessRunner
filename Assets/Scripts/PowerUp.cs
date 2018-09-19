@@ -22,7 +22,7 @@ public class PowerUp : MonoBehaviour {
     public enum Type // Powerup.Type
     {
         
-       Slowmo,
+       //Slowmo,
         Health,
        // JetpackBoost,
         Negative,

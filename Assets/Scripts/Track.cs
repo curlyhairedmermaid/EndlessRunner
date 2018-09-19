@@ -20,6 +20,14 @@ public class Track : MonoBehaviour {
     /// </summary>
     public GameObject prefabWall;
     /// <summary>
+    /// The Refence to the short wall
+    /// </summary>
+    public GameObject prefabWallLow;
+    /// <summary>
+    /// Reference to the wall with the gap in the middle of it
+    /// </summary>
+    public GameObject prefabWallMid;
+    /// <summary>
     /// Reference to the health powerup
     /// </summary>
     public GameObject prefabHealth;
@@ -45,9 +53,10 @@ public class Track : MonoBehaviour {
         Vector3 spawnPos2 = wallSpawnPoints[randIndex2].position;
 
         // Spawn a wall, parent it to this chunk of track:
-        Instantiate(prefabWall, spawnPos, Quaternion.identity, transform);
+        Instantiate(WhichWall(), spawnPos, Quaternion.identity, transform);
 
         if(spawnPos2 != spawnPos) Instantiate(prefabHealth, spawnPos2, Quaternion.identity, transform);
+
     }
     /// <summary>
     /// Sets the speed of the objects and the position that triggers their death
@@ -59,6 +68,20 @@ public class Track : MonoBehaviour {
         if(pointOut.position.z < -30)
         {
             isDead = true;
+        }
+    }
+    GameObject WhichWall()
+    {
+        int which = Random.Range(1, 3);
+        if (which ==1)
+        {
+            return prefabWall;
+        } else if ( which == 2)
+        {
+            return prefabWallLow;
+        } else
+        {
+            return prefabWallMid;
         }
     }
 

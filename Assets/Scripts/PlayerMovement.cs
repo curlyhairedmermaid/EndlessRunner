@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    SceneController scene;
     /// <summary>
     /// The width of the lane
     /// </summary>
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     int lane = 0;
     public int health = 5;
-    SceneController scenecontroller;
+    
 
     void Start()
     {
@@ -50,10 +51,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")) // press space
         {
-            
-            if (transform.position.y <= 0) //on ground
+
+            if (transform.position.y <= 1.5) //on ground
             {
-            velocity.y = 7; //jump
+                print("Why");
+                velocity.y = 7; //jump
             }
         }
        // Euler shit 
@@ -107,9 +109,9 @@ public class PlayerMovement : MonoBehaviour
             switch (powerup.type)
             {
 
-               case PowerUp.Type.Slowmo:
-                    scenecontroller.rotSpeed += .2f;
-                    break;
+               //case PowerUp.Type.Slowmo:
+
+                   // break;
                 case PowerUp.Type.Health:
                     if (health < 4)
                     {

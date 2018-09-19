@@ -11,7 +11,7 @@ public class SceneController : MonoBehaviour {
     /// <summary>
     /// the rotation speed of the screen
     /// </summary>
-    public float rotSpeed = .1f;
+    public float rotSpeed = .18f;
 
 
     void Start () {
@@ -19,7 +19,6 @@ public class SceneController : MonoBehaviour {
 	}
 
 	void Update () {
-       // bullet.Update();
         for (int i = tracks.Count - 1; i >= 0; i--)
         {
             if(tracks[i].isDead)
@@ -32,6 +31,7 @@ public class SceneController : MonoBehaviour {
             if (tracks.Count < 5) SpawnSomeTrack();
 
        transform.Rotate(0,0, rotSpeed);
+        //print(rotSpeed);
     }
 
     void SpawnSomeTrack()
