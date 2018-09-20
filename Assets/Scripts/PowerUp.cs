@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour {
-    /// <summary>
-    /// The health of the player
-    /// </summary>
-    public int health = 5;
+public class PowerUp : MonoBehaviour
+{
     /// <summary>
     /// the speed of the powerup
     /// </summary>
@@ -21,10 +18,7 @@ public class PowerUp : MonoBehaviour {
     /// </summary>
     public enum Type // Powerup.Type
     {
-        
-       //Slowmo,
         Health,
-       // JetpackBoost,
         Negative,
         None
     }
@@ -47,20 +41,6 @@ public class PowerUp : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-    }
-    /// <summary>
-    /// If the health power up is collided with do this
-    /// </summary>
-    public void Health()
-    {
-
-    }
-    /// <summary>
-    /// If a "negative" power up is hit, do this
-    /// </summary>
-    public void Negative()
-    {
-
     }
 
 }

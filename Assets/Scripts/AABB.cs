@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AABB : MonoBehaviour {
+public class AABB : MonoBehaviour
+{
     /// <summary>
     /// Moar mesh
     /// </summary>
@@ -39,9 +40,10 @@ public class AABB : MonoBehaviour {
     /// <summary>
     /// Adds a controller to the collider object
     /// </summary>
-	void Start () {
+	void Start()
+    {
         CollisionController.Add(this);
-	}
+    }
     /// <summary>
     /// Auto remove When collision is true
     /// </summary>
@@ -52,10 +54,11 @@ public class AABB : MonoBehaviour {
     /// <summary>
     /// Called every frame
     /// </summary>
-	void Update () {
+	void Update()
+    {
         isDoneChecking = false;
         isOverlapping = false;
-	}
+    }
     /// <summary>
     /// Draws red around objects if the object overlapping. Otherwise draws white
     /// </summary>

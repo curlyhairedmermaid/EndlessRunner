@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionController : MonoBehaviour {
+public class CollisionController : MonoBehaviour
+{
     /// <summary>
     /// a list of AABB objects
     /// </summary>
@@ -26,20 +27,22 @@ public class CollisionController : MonoBehaviour {
     }
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
 
     /// <summary>
     /// Late update is called after update
     /// </summary>
     // Update is called once per frame
-    void LateUpdate () {
+    void LateUpdate()
+    {
 
-		foreach(AABB a in aabbs)
+        foreach (AABB a in aabbs)
         {
-            foreach(AABB b in aabbs)
+            foreach (AABB b in aabbs)
             {
                 if (a == b) continue;
                 if (a.isDoneChecking || b.isDoneChecking) continue;
@@ -56,5 +59,5 @@ public class CollisionController : MonoBehaviour {
         }
 
 
-	}
+    }
 }

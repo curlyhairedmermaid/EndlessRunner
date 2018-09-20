@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    SceneController scene;
     /// <summary>
     /// The width of the lane
     /// </summary>
@@ -22,8 +22,15 @@ public class PlayerMovement : MonoBehaviour
     /// Lane player is currently in
     /// </summary>
     int lane = 0;
+    /// <summary>
+    /// The health of the player
+    /// </summary>
     public int health = 5;
-    
+    /// <summary>
+    /// Our text object for the players health being rendered to the screen
+    /// </summary>
+    public Text healthy;
+
 
     void Start()
     {
@@ -33,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthy.text = "Health: " + health.ToString();
         float h = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Horizontal"))
         {
@@ -54,12 +62,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (transform.position.y <= 1.5) //on ground
             {
-                print("Why");
                 velocity.y = 7; //jump
             }
         }
-       // Euler shit 
-        
+        // Euler shit 
+
         transform.position += velocity * Time.deltaTime;
         if (transform.position.y < 1) // on gorund
         {
@@ -85,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetButton("SquishFlat"))
         {
-            print("i'm bring sexy back");
             scale.y = Mathf.Lerp(scale.y, (scale.y >= 0 ? .2f : 3), Time.deltaTime);
         }
         else
@@ -94,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.localScale = scale;
 
-      }
+    }
     /// <summary>
     /// Decides what to do depending on what the tag and type is
     /// </summary>
@@ -108,12 +114,8 @@ public class PlayerMovement : MonoBehaviour
             PowerUp powerup = other.GetComponent<PowerUp>();
             switch (powerup.type)
             {
-
-               //case PowerUp.Type.Slowmo:
-
-                   // break;
                 case PowerUp.Type.Health:
-                    if (health < 4)
+                    if (health < 5)
                     {
                         health += 1;
                         print(health);
@@ -130,13 +132,11 @@ public class PlayerMovement : MonoBehaviour
                         SceneManager.LoadScene("Lose");
                     }
                     break;
-                //case PowerUp.Type.JetpackBoost:
-                // break;
                 case PowerUp.Type.None:
                     break;
             }
             Destroy(other.gameObject);
         }
     }
-     
+
 }

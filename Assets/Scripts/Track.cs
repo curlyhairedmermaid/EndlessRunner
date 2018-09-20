@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Track : MonoBehaviour {
+public class Track : MonoBehaviour
+{
     /// <summary>
     /// The starting point of the object
     /// </summary>
@@ -31,6 +32,7 @@ public class Track : MonoBehaviour {
     /// Reference to the health powerup
     /// </summary>
     public GameObject prefabHealth;
+    public GameObject prefabRot;
     /// <summary>
     /// the speed of the track
     /// </summary>
@@ -39,7 +41,9 @@ public class Track : MonoBehaviour {
     /// Is dead variable. Hidden in the inspector
     /// </summary>
     [HideInInspector] public bool isDead = false;
-
+    /// <summary>
+    /// Calls when instantiated
+    /// </summary>
     void Start()
     {
         if (wallSpawnPoints.Length == 0) return;
@@ -52,10 +56,13 @@ public class Track : MonoBehaviour {
         int randIndex2 = Random.Range(0, wallSpawnPoints.Length);
         Vector3 spawnPos2 = wallSpawnPoints[randIndex2].position;
 
+
         // Spawn a wall, parent it to this chunk of track:
         Instantiate(WhichWall(), spawnPos, Quaternion.identity, transform);
 
-        if(spawnPos2 != spawnPos) Instantiate(prefabHealth, spawnPos2, Quaternion.identity, transform);
+        if (spawnPos2 != spawnPos) Instantiate(prefabHealth, spawnPos2, Quaternion.identity, transform);
+
+
 
     }
     /// <summary>
@@ -65,23 +72,33 @@ public class Track : MonoBehaviour {
     {
         transform.position += new Vector3(0, 0, -speed) * Time.deltaTime;
 
-        if(pointOut.position.z < -30)
+        if (pointOut.position.z < -30)
         {
             isDead = true;
         }
     }
+    /// <summary>
+    /// Chooses which wall prefab will be spawned
+    /// </summary>
+    /// <returns>Which wall prefab has been selected</returns>
     GameObject WhichWall()
     {
         int which = Random.Range(1, 3);
-        if (which ==1)
+        if (which == 1)
         {
             return prefabWall;
-        } else if ( which == 2)
+        }
+        else if (which == 2)
         {
             return prefabWallLow;
-        } else
+        }
+        else if (which == 3)
         {
             return prefabWallMid;
+        }
+        else
+        {
+            return prefabWall;
         }
     }
 

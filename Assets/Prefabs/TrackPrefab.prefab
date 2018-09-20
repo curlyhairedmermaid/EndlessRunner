@@ -338,11 +338,10 @@ MonoBehaviour:
   prefabWall: {fileID: 1002954541978992, guid: a5c0922f817251c4ba75d2b60ad9e2b0, type: 2}
   prefabWallLow: {fileID: 1949074645079648, guid: fd7dfaee0c44c1a4199a706e99dca60e,
     type: 2}
-  prefabWallHigh: {fileID: 1110770927031206, guid: 416e9219c959758408d3436d47e27255,
-    type: 2}
   prefabWallMid: {fileID: 1048766546556666, guid: 906a33b8bd15b304482ead7c745fbcde,
     type: 2}
   prefabHealth: {fileID: 1053119657852464, guid: a9e8e3dfde8b0b444b4e761cf4012e58,
     type: 2}
+  prefabRot: {fileID: 1813214710533906, guid: b0fca66d871463e40af9a8370dfcd47f, type: 2}
   speed: 10
   isDead: 0
